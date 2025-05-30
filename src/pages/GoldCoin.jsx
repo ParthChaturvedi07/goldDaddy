@@ -7,7 +7,7 @@ import yellowGradient from "../assets/images/yellowGradient.svg";
 import greenGradient from "../assets/images/greenGradient.svg";
 import blueGradient from "../assets/images/blueGradient.svg";
 import blueGradient2 from "../assets/images/blueGradient2.svg";
-import orangeGradient from "../assets/images/orangeGradient.svg";
+import orangeGradient from "../assets/images/OrangeGradient.svg";
 import orangeCoin from "../assets/images/OrangeFront.png";
 import blueCoin from "../assets/images/BlueFront.png";
 import tenGM from "../assets/images/10gm.svg";
