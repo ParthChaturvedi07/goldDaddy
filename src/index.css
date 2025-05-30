@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: "Poi-regular";
+  src: url("../public//fonts/POICarbonicTrial-Regular-BF6674f45a18794.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "Poi-semibold";
+  src: url("../public/fonts/POICarbonicTrial-SemiBold-BF6674f45a3899f.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "Poi-medium";
+  src: url("../public//fonts/POICarbonicTrial-Medium-BF6674f4597f15a.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "Poi-bold";
+  src: url("../public/fonts/POICarbonicTrial-Bold-BF6674f45541aef.otf")
+    format("opentype");
+}
+
+@font-face {
+  font-family: "Poi-extraLight";
+  src: url("../public/fonts/POICarbonicTrial-ExtraLight-BF6674f457c7726.otf")
+    format(opentype);
+}
+
+@font-face {
+  font-family: "Poi-light";
+  src: url("../public/fonts/POICarbonicTrial-Light-BF6674f4593bc00.otf")
+    format(opentype);
+}
