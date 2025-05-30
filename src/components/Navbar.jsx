@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import GD_logo from "../assets/icons/logo.svg";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useGSAP(() => {
+    gsap.from(".nav-link", {
+      y: -300,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.09,
+    });
+  }, []);
 
   return (
     <nav className="bg-transparent py-4 px-6 fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
+        <Link to="/" className=" nav-link flex items-center">
           <img src={GD_logo} alt="Gold Daddy" className="h-8" />
         </Link>
 
@@ -35,31 +47,31 @@ export const Navbar = () => {
         <div className="hidden lg:flex items-center space-x-8">
           <Link
             to="/"
-            className="text-[#B8860B] hover:text-[#8B6914] font-[Poi-regular] text-lg"
+            className="nav-link nav-link  text-[#B8860B] hover:text-[#8B6914] font-[Poi-regular] text-lg"
           >
             Home
           </Link>
           <Link
             to="/faq"
-            className="text-[#707070] hover:text-gray-900 font-[Poi-regular] text-lg"
+            className=" nav-link text-[#707070] hover:text-gray-900 font-[Poi-regular] text-lg"
           >
             FaQs
           </Link>
           <Link
             to="/real-estates"
-            className="text-[#707070] hover:text-gray-900 font-[Poi-regular] text-lg"
+            className=" nav-link text-[#707070] hover:text-gray-900 font-[Poi-regular] text-lg"
           >
             Real Estates
           </Link>
           <Link
             to="/gold-coins"
-            className="text-[#707070] hover:text-gray-900 font-[Poi-regular] text-lg"
+            className=" nav-link text-[#707070] hover:text-gray-900 font-[Poi-regular] text-lg"
           >
             Gold Coin
           </Link>
           <Link
             to="/contact"
-            className="bg-[#B8860B] font-[Poi-regular] text-white px-8 py-2 rounded-full hover:bg-[#8B6914] transition-colors duration-300"
+            className=" nav-link bg-[#B8860B] font-[Poi-regular] text-white px-8 py-2 rounded-full hover:bg-[#8B6914] transition-colors duration-300"
           >
             Contact Us
           </Link>
