@@ -193,6 +193,35 @@ export const GoldCoin = () => {
       },
       "push+=0.5"
     );
+
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      
+      // Cleanup all ScrollTriggers and revert timelines
+      tl.scrollTrigger && tl.scrollTrigger.kill();
+      tl2.scrollTrigger && tl2.scrollTrigger.kill();
+      tl3.scrollTrigger && tl3.scrollTrigger.kill();
+      tl4.scrollTrigger && tl4.scrollTrigger.kill();
+      tl5.scrollTrigger && tl5.scrollTrigger.kill();
+
+      tl.kill();
+      tl2.kill();
+      tl3.kill();
+      tl4.kill();
+      tl5.kill();
+
+      // Additionally, kill all ScrollTriggers globally
+      gsap.utils.toArray(".gsap-animated").forEach((el) => {
+        ScrollTrigger.getById(el)?.kill();
+      });
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
   }, []);
 
   return (
