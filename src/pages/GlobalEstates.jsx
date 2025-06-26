@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BurjKhalifa from "../assets/images/burjkhalifa.svg";
+import BurjKhalifa from "../assets/images/burjKhalifa.svg";
 import bg from "../assets/images/gestatebg.png";
 import island from "../assets/images/damacIsland.png";
 import GoldDaddyxAries from "../assets/icons/goldaddyxaries.svg";
