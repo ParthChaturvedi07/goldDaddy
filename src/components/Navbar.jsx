@@ -61,7 +61,7 @@ export const Navbar = () => {
             to="/real-estates"
             className=" nav-link text-[#707070] hover:text-gray-900 font-[Poi-regular] text-lg"
           >
-            Real Estates
+            Global Estates
           </Link>
           <Link
             to="/gold-coins"

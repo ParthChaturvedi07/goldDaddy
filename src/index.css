@@ -36,3 +36,9 @@
   src: url("../public/fonts/POICarbonicTrial-Light-BF6674f4593bc00.otf")
     format(opentype);
 }
+
+@font-face {
+  font-family: "Crika-Variable";
+  src: url("../public/fonts/Cirka-Variable.ttf")
+    format(truetype);
+}

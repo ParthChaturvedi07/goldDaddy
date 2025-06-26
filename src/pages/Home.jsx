@@ -269,7 +269,7 @@ export const Home = () => {
         start: "top 20%",
         end: "top 0",
         scrub: 1.2,
-        markers: true,
+        // markers: true,
         toggleActions: "play none none reverse",
       },
     });
@@ -356,7 +356,7 @@ export const Home = () => {
           </h2>
 
           <div className="buy-sell-gold w-full max-w-5xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex flex-col items-center md:items-start overflow-hidden">
                 <h3 className="buy text-5xl md:text-7xl font-[Poi-medium] mb-1">
                   We Buy
