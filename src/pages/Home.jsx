@@ -304,7 +304,7 @@ export const Home = () => {
   return (
     <>
       <div className="min-h-screen w-[100%] pt-16 flex items-center justify-center flex-col bg-gradient-to-r from-orange-100 via-[#E1DDD7] to-teal-100 relative overflow-hidden">
-        <div className=" h-screen sm:h-full container mx-auto px-4 py-16 md:py-24 relative z-10 flex flex-col items-center justify-center gap-8">
+        <div className="h-screen w-full sm:h-screen container mx-auto px-4 py-16 md:py-24 relative z-10 flex flex-col items-center justify-center gap-8">
           {/* Hero Section */}
           <div className="container mx-auto px-4 py-16 md:py-24 flex flex-col items-center justify-center gap-5 text-center">
             <h1 className="text-4xl text-[#696969] md:text-5xl font-[Poi-regular]">

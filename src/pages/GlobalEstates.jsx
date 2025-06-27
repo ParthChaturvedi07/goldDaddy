@@ -8,7 +8,7 @@ import VerticalLine from "../assets/icons/verticalLine.svg";
 // import { Footer } from "../components/Footer";
 import GDRectangle from "../assets/icons/gdrectangle.png";
 import GDlogo from "../assets/icons/logo2.svg";
-import horizontalLine from "../assets/icons/horizontalline.svg";
+import horizontalLine from "../assets/icons/horizontalline2.svg";
 import Linkedin from "../assets/icons/linkedin2.svg";
 import twitter from "../assets/icons/twitter2.svg";
 import facebook from "../assets/icons/facebook2.svg";
@@ -99,8 +99,8 @@ export const GlobalEstates = () => {
         ".gd-aries",
         {
           opacity: 0,
-          x: 70,
-          duration: 0.6,
+          x: 150,
+          duration: 1,
           ease: "back.out(1.7)",
         },
         "reveal"
@@ -325,9 +325,9 @@ export const GlobalEstates = () => {
                     {property.location}
                   </p>
                 </div>
-                <button className="text-lg font-[Cirka-Variable] w-full bg-white text-black py-2 rounded-full mt-4 font-medium transition-all duration-500 ease-in-out hover:bg-black hover:text-white hover:shadow-[0_0_15px_rgba(197,162,101,0.6)] hover:tracking-wider hover:scale-102 cursor-pointer">
+                <Link to="/properties" className=" block text-lg text-center font-[Cirka-Variable] w-full bg-white text-black py-2 rounded-full mt-4 font-medium transition-all duration-500 ease-in-out hover:bg-black hover:text-white hover:shadow-[0_0_15px_rgba(197,162,101,0.6)] hover:tracking-wider hover:scale-102 cursor-pointer">
                   Explore
-                </button>
+                </Link >
               </div>
             </div>
           ))}
