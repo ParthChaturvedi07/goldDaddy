@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer } from "../components/Footer";
+import { Link } from "react-router-dom";
 import island from "../assets/images/island2.png";
 import damacfont from "../assets/icons/damacfont.svg";
 import GDlogo from "../assets/icons/logo2.svg";
@@ -19,22 +19,124 @@ import Airport from "../assets/icons/airport.svg";
 import D_Airport from "../assets/icons/dairport.svg";
 import Bedroom from "../assets/icons/bedroom.svg";
 
-import { Link } from "react-router-dom";
+import gsap from "gsap";
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
 
 export const Properties = () => {
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.from(
+      ".island",
+      {
+        x: -150,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "reveal"
+    ).from(
+      ".island-text",
+      {
+        x: 150,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "reveal"
+    );
+
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".location-container",
+        scroller: "body",
+        start: "top 70%",
+        end: "top 10%",
+        // markers: "true",
+        scrub: 1.2,
+      },
+    });
+    tl2.from(".map", {
+      scale: "1.09",
+      duration: 1.2,
+      ease: "power2.out",
+    });
+
+    let split = SplitText.create(".topreason-text", {
+      type: "chars",
+    });
+    let split2 = SplitText.create(".landmark-text", {
+      type: "chars",
+    });
+
+    const tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".top-reason-section",
+        scroller: "body",
+        start: "top 70%",
+        end: "top 10%",
+        // markers: "true",
+        scrub: 1.2,
+      },
+    });
+
+    tl3
+      .from(
+        split.chars,
+        {
+          opacity: 0,
+          y: 70,
+          stagger: 0.01,
+          duration: 0.3,
+          ease: "back.out(1.7)",
+        },
+        "up"
+      )
+      .from(
+        split2.chars,
+        {
+          opacity: 0,
+          y: 70,
+          stagger: 0.01,
+          duration: 0.3,
+          ease: "back.out(1.7)",
+        },
+        "up"
+      );
+
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener("resize", handleResize);
+    ScrollTrigger.refresh();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      tl.kill();
+      tl2.kill();
+      tl3.kill();
+      if (split && split.revert) split.revert();
+      if (split2 && split2.revert) split2.revert();
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#1A0D1C] text-white pt-12 pb-12">
       {/* Hero Section */}
       <div className="h-screen w-full flex justify-center container mx-auto px-4">
         <div className="flex flex-col justify-center items-center gap-[0vh] sm:gap-[20vh] sm:flex-row">
-          <div className="relative rounded-[24px] overflow-hidden">
+          <div className="island relative rounded-[24px] overflow-hidden">
             <img
               src={island}
               alt="Damac Islands Aerial View"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="flex flex-col justify-center items-center sm:items-start">
+          <div className="island-text flex flex-col justify-center items-center sm:items-start">
             <img src={damacfont} alt="Damac" className="h-50 w-50 -mb-2" />
             <p className="text-2xl mb-4 font-[Cirka-Variable]">
               The future of Island Living
@@ -60,11 +162,11 @@ export const Properties = () => {
       </div>
 
       {/* Location Section */}
-      <div className="container mx-auto px-4 sm:px-30 mb-16">
+      <div className="location-container container mx-auto px-4 sm:px-30 mb-16">
         <h2 className="text-3xl md:text-5xl text-center font-[Cirka-Variable] mb-6">
           Location
         </h2>
-        <div className="bg-[#1E1E1E] h-[50vh] sm:h-[65vh] md:h-[70vh] w-full rounded-[32px] overflow-hidden">
+        <div className="map h-[50vh] sm:h-[65vh] md:h-[70vh] w-full rounded-[32px] overflow-hidden">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d79173.92591608631!2d55.20715732340205!3d25.028062012391075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f7100631fbbb5%3A0x3f0e24f0e55aef88!2sDamac%20Islands!5e0!3m2!1sen!2sin!4v1751064176954!5m2!1sen!2sin"
             width="100%"
@@ -78,8 +180,8 @@ export const Properties = () => {
       </div>
 
       {/* Top Reasons Section */}
-      <div className="text-center container mx-auto px-4 mb-16">
-        <h2 className="text-4xl font-[Crik-Variable] mb-10">
+      <div className="top-reason-section text-center container mx-auto px-4 mb-16">
+        <h2 className="topreason-text text-2xl sm:text-3xl md:text-4xlfont-[Crik-Variable] mb-10">
           Top Reasons to Own This Villa
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
@@ -91,7 +193,7 @@ export const Properties = () => {
 
       {/* Famous Landmarks Section */}
       <div className="text-center container mx-auto px-4 mb-16">
-        <h2 className="text-4xl font-[Crik-Variable] mb-10">
+        <h2 className="landmark-text text-2xl sm:text-3xl md:text-4xl font-[Crik-Variable] mb-10">
           Famous landmarks nearby
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4">

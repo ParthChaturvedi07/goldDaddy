@@ -5,9 +5,10 @@ export const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    console.log("ScrollToTop triggered on route change:", pathname);
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // or "auto"
+      behavior: "smooth",
     });
   }, [pathname]);
 
