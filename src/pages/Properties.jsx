@@ -129,13 +129,14 @@ export const Properties = () => {
       {/* Hero Section */}
       <div className="h-screen w-full flex justify-center container mx-auto px-4">
         <div className="flex flex-col justify-center items-center gap-[0vh] sm:gap-[20vh] sm:flex-row">
-          <div className="island relative rounded-[24px] overflow-hidden">
+          <div className="island group relative rounded-[24px] overflow-hidden">
             <img
               src={island}
               alt="Damac Islands Aerial View"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
             />
           </div>
+
           <div className="island-text flex flex-col justify-center items-center sm:items-start">
             <img src={damacfont} alt="Damac" className="h-50 w-50 -mb-2" />
             <p className="text-2xl mb-4 font-[Cirka-Variable]">
